@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleepy Cursor 💤</title>
+    <style>
+    
+   
+    
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color:white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+
+
+nav{
+  
+  height: 50px;
+  width: 100vw;;
+  position: fixed;
+  display: flex;
+justify-content: space-around;
+align-items: center;
+  background-color: #143547;
+  top:0px;
+   
+ 
+ 
+}
+a{
+  color: white;
+}
+.custom-cursor {
+   position: absolute;
+   font-size: 40px;
+   pointer-events: none;
+   transition: transform 0.2s ease-in-out;
+        }
+    </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+   <nav>
+         <h1>Sleepy Cursor</h1>
+<a href="guide.html"><i class="fa-solid fa-bars"></i></a>
+   </nav>
+  
+
+    
+ 
+  
+  
+
+
+    <div id="cursor" class="custom-cursor">😃</div>
+
+    <script>
+        let cursor = document.getElementById("cursor");
+        let timeout;
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.pageX + "px";
+            cursor.style.top = e.pageY + "px";
+            cursor.innerText = "😃"; // Active emoji
+
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                cursor.innerText = "😴"; // Sleep emoji after 3 sec
+            }, 3000);
+        });
+
+        document.addEventListener("click", () => {
+            cursor.innerText = "😲"; // Click surprise emoji
+            setTimeout(() => {
+                cursor.innerText = "😃"; // Back to active emoji
+            }, 500);
+        });
+    </script>
+</body>
+</html>
